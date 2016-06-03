@@ -11,7 +11,8 @@ fi
 echo 'Starting release'
 
 npm version $1
-echo 'Version now: $( node --version )'
+PACKAGE_VERSION=$( node scripts/details.js VERSION )
+echo 'Version now: $PACKAGE_VERSION'
 
 echo 'Pushing to github'
 git push --follow-tags
