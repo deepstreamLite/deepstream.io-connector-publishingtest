@@ -19,7 +19,7 @@ environment:
   MEMCACHED_URL: 54.93.77.53:11211
 
 artifacts:
-  - path: **\*.zip
+  - path: '**\*.zip'
 
   - path: build\*.zip
     name: deepstream.io-connector
