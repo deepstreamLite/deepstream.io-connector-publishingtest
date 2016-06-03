@@ -1,5 +1,5 @@
 {
-  "name": "deepstream.io-cache-memcached",
+  "name": "deepstream.io-cache-publishingtest",
   "version": "0.5.23",
   "description": "A deepstream.io cache connector for memcached",
   "main": "src/connector.js",
