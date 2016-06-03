@@ -22,8 +22,8 @@ after_script:
   - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 
 before_deploy:
-  - export RELEASE_PKG_FILE=$( ls build/* | grep deepstream.io-[^-]*-[^-]*-[mac:linux] )
-  - echo "deploying $(RELEASE_PKG_FILE) to GitHub releases"
+  - export RELEASE_PKG_FILE="build/$( ls build/* | grep deepstream.io-[^-]*-[^-]*-[mac|linux] )"
+  - echo "deploying ${RELEASE_PKG_FILE} to GitHub releases"
 
 deploy:
   - provider: s3
@@ -41,7 +41,7 @@ deploy:
     api_key:
       secure: "PY1AfzPa1uO7n+IE/u5eM+vuQEWm46oPK6ygqIU1KEQO2sjayb+KsWmWGfgngxDM/gUcu0XRDGB3G9QTK3Lsj6zPq582Pi3xlm3WdRQj/23SigAxO1IxIddrdyTGP21Ifkpul/A7nYLhBfpDVS1vP1qzPZmQy61GG2il0pTnsDCy2eDu/WccWFeBns4XDDIxOJJH43dQBcYL7IXZ93d77VraGGyHQmHdVJMSYVUhPHvkzJCitrbKZ30KxD8ewTURYzWfzrjOSr1kW2L0/FYDHFHImOVjeGvCXsQ5GjwGoTIHXUn6Buz7dwQUUU7IB/a+2cObliHx8JVHSJNtiiJJL2FqLjDW6SajP5umuEyXlJzETTpJgiwPj7YIU5oVWCr80SSEBeZugQL/JBb/n78SdmHo7kxLCq5WmwLi5hBGIX4OQ5gcoY+GARguprzYrS7n1Nh2RGAYmlmMUzKqSTGRlfl/V/7aDxsIkzrKShIa4OqHjDxWvWaRsykAc6aGg2E6Dy2iagFRfohAf0V4qIRfgIvzLz16Add3B61m0jDV5OjT45Or8h5+Ihj7FqjA4uGeQIA5/kIL5LFzFiwTR6wRRJl2gmMQsNP30FFJb9gtRmGkQfMBB7vIwJD+ye4arR4jFK4ciFSPjEvk63dkaSp5T/2Lh/0Pj0L3m2Z1ofmx9NU="
     file_glob: true
-    file: "$(RELEASE_PKG_FILE)"
+    file: "${RELEASE_PKG_FILE}"
     on:
       tags: true
 
