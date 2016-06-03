@@ -13,7 +13,6 @@ test_script:
   - npm --version
   - npm test
   - scripts\package.bat
-  - For /d %%d in ( build\** ) do MOVE %%d %cd%
 
 # Environment variable needs to change
 environment:
