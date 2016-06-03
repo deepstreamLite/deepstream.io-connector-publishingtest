@@ -39,7 +39,7 @@ deploy:
     file_glob: true
     file:
       - "build/*/deepstream.io-connector-publishingtest-mac.zip"
-      - "build/*/deepstream.io-connector-publishingtest-linx.tar.gz"
+      - "build/*/deepstream.io-connector-publishingtest-linux.tar.gz"
     on:
       tags: true
 
