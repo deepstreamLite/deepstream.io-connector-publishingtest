@@ -6,6 +6,7 @@ env:
     - ARTIFACTS_BUCKET=ds-server-artifacts
 
 node_js:
+  - "stable"
   - "4.4.4"
 
 matrix:
@@ -22,8 +23,7 @@ after_script:
 
 deploy:
   - provider: s3
-    access_key_id:
-      secure: "LVfD8TNW39MSNVdVrvsq9ZiWKmdiamIFy2n42SwvzDUuC/NvESswZQcg2ObpkSzvkqbS4fqwM7VVf3UmFzGt8Tx/O2BPMUTPE+tffohHZXy1z8SNPtxc7BC/tChmQQvyvvCZGjnOJcss9yYGZrzGRCEhzM/XXLiafm59ZUvXRo4dSy10E0pAzil6fUEZ9gGFGnKrRMVi2pE9En/qlZ9Lnfd35QfEQZQiW1w6oJXTiNjXRI/4p+BfkR+dkNJvWdaKtZw8jQRblQ6ZP6sXdrbEfXXwj0PD5Wg7h68/vkDzXJ8MeKLgWUeLxWQx8OkMvJGPBHsOsBZLcSYGLZNwPcw2VAjIkH5+1o3CLFE0UxmBLQ1IZKVRa9WxI6oCXGr0UJ/02XCjbC4fbDoSOY6N157K7VhANfvoUHnNkDmfom4vNtWdr67kR+cwZvqNn2ZLEAuAq9IYLIMW5q61VP+zgp9IrldHh+vamjBaxzMjufo/H77jAp7vUurB/jcmUWQVx0VSNOBrGIeY1RjfhPpjZ6c0LQ+uw59fM5Iekrlrm01R83OapJf4MqsrwpiFzx8XpqWHSnDh3CBlvTDTbOMSU6BuQoAoTTFMndQEtaRMSnXE2FhjpgId1hWAphY0NxDxs8qcr7tDrmcHpLPtS1t5WcJ1Q+9BhyD0yHxHxwn7FHs8dfQ="
+    access_key_id: "AKIAIC5J3AF5E2HIQ3LA"
     secret_access_key:
       secure: "M7d7cMOd6h88VnYJxFh9zVtBKexqIP2vCWxydvSLUa5ctQlhYbsc7F+qBciH3uU8un+Ghn47CaWLhS7rCuQl5Y6KApbK97cA27JFTjCfCbjjZOh/pJEKuYP6FQJBUm62ARfsTZtblB+XWf7rZCzimyZNbSWZguOWeaMG2SMg1erFkSz5XXx03QXhvElK5ug96HVPkFV0v3yuAXEcE8gB/ulaDg9DD3HL1u8fjGAhMiHhCl6495biloBaKqcgFDSVUIDpkfttc8/C+m0hWD9XDoPAGa/N/4vuvAY0kRynE0quutZHhDVY9LxL1tc7CddWBNWCr+2QFHlzsDBzPjDGtNY/9KFSD+02HmCbpsUP9dRzDlp7mdItSqYcWgZRuiHt/Z66UYeAChvGbG1RYUDV9O/v1Y6s7fWGGcUzVFuMfJvq0FXmt5ZAEV+E5JB73h66BOl97Lzszt4anQfjLBLUdZlLFGYwfH/aFRIbkVHfBb2WjhNfVqLnUOJnoyaSdq3ikb1erNs1BoVP+I1xo9zJXLbU3lvVld3Ot7z4Jj1Ps/nx+LSjQsyZB1kimZG36278WvZVoVBxqtqt91jvygFyh8gYXuBCCw4ZFhmzn6z/R79rd1IHs+UY3tF7Cv7mQS4qCanhhZLWG3GANZgxfTicIh19GEpOHzFuO6vUnNYcXjs="
     bucket: ds-server-artifacts
@@ -33,7 +33,7 @@ deploy:
     upload-dir: $TRAVIS_REPO_SLUG
   - provider: releases
     api_key:
-      secure: Nza9Tduc8r2OUTXf/DVX78mL1OejgpBaOo/nZ1zJxco6v/fXtoHYjfplkqUW/bloZkeS2w88dG5fLreuQkwSQ/Zod6S0An7qTHaJ/sLN1ivVPzGoW+lwI/xvF+w11INpmQzkCQmGmsnnUzDCSyNYGluW+hZdCshpQ6ZWd3hbNKU=
+      secure: "Nza9Tduc8r2OUTXf/DVX78mL1OejgpBaOo/nZ1zJxco6v/fXtoHYjfplkqUW/bloZkeS2w88dG5fLreuQkwSQ/Zod6S0An7qTHaJ/sLN1ivVPzGoW+lwI/xvF+w11INpmQzkCQmGmsnnUzDCSyNYGluW+hZdCshpQ6ZWd3hbNKU="
     file: "$( ls build/*/* | grep '/deepstream.io-[^-]*-'[^-]*-[mac:linux] )"
     on:
       tags: true
