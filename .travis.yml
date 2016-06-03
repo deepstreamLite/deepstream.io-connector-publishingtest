@@ -30,8 +30,8 @@ deploy:
     bucket: ds-server-artifacts
     skip_cleanup: true
     acl: public_read
+    local_dir: build
     upload-dir: $TRAVIS_REPO_SLUG
-    file: "$( ls build/* | grep '/deepstream.io-[^-]*-'[^-]*-[mac:linux] )"
   - provider: releases
     api_key:
       secure: "Nza9Tduc8r2OUTXf/DVX78mL1OejgpBaOo/nZ1zJxco6v/fXtoHYjfplkqUW/bloZkeS2w88dG5fLreuQkwSQ/Zod6S0An7qTHaJ/sLN1ivVPzGoW+lwI/xvF+w11INpmQzkCQmGmsnnUzDCSyNYGluW+hZdCshpQ6ZWd3hbNKU="

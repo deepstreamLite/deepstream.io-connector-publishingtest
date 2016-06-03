@@ -14,6 +14,9 @@ test_script:
   - npm test
   - scripts\package.bat
 
+after_build:
+  - For /d %%d in ( build\** ) do MOVE %%d %cd%
+
 # Environment variable needs to change
 environment:
   MEMCACHED_URL: 54.93.77.53:11211
