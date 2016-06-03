@@ -7,6 +7,11 @@ FOR /F "delims=" %%i in ('node scripts/details.js COMMIT') do call SET COMMIT=%%
 FOR /F "delims=" %%i in ('node scripts/details.js NAME') do call SET PACKAGE_NAME=%%i
 FOR /F "delims=" %%i in ('node scripts/details.js VERSION') do call SET PACKAGE_VERSION=%%i
 
+:: Clean the build directory
+RMDIR /S /Q build
+MKDIR build
+MKDIR build\%PACKAGE_VERSION%
+
 if /I NOT %NODE_VERSION% == %PACKAGED_NODE_VERSION% (
 	echo Packaging only done on %PACKAGED_NODE_VERSION%
 	EXIT /B
@@ -15,11 +20,6 @@ if /I NOT %NODE_VERSION% == %PACKAGED_NODE_VERSION% (
 SET FILE_NAME=%PACKAGE_NAME%-%PACKAGE_VERSION%-%COMMIT%-windows.zip
 SET CLEAN_FILE_NAME=%PACKAGE_NAME%-windows.zip
 ECHO %FILE_NAME%
-
-:: Clean the build directory
-RMDIR /S /Q build
-MKDIR build
-MKDIR build\%PACKAGE_VERSION%
 
 :: Do a git archive and a production install
 :: to have cleanest output

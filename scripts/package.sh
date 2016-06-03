@@ -6,6 +6,11 @@ PACKAGE_VERSION=$( node scripts/details.js VERSION )
 PACKAGE_NAME=$( node scripts/details.js NAME )
 OS=$( node scripts/details.js OS )
 
+# Clean the build directory
+rm -rf build
+mkdir build
+mkdir build/$PACKAGE_VERSION
+
 if [ $OS == "darwin" ]; then
 	PLATFORM="mac"
 elif  [ $OS == "linux" ]; then
@@ -24,11 +29,6 @@ if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 fi
 
 FILE_NAME=$PACKAGE_NAME-$PACKAGE_VERSION-$COMMIT-$PLATFORM
-
-# Clean the build directory
-rm -rf build
-mkdir build
-mkdir build/$PACKAGE_VERSION
 
 # Do a git archive and a production install
 # to have cleanest output
