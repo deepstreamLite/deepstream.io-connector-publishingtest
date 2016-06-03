@@ -39,7 +39,7 @@ deploy:
     description: 'Release description'
     auth_token:
       secure: AzK8Q0I0imLpXdHGjXAehk03uWjh40mG0h2/T2mAxDYrrSmJ2tDFLYogj+yu3VJ3
-    artifact: /build\/.*\/deepstream.io-[^-]*-'[^-]*-windows/
+    artifact: /.*\/deepstream.io-[^-]*-'[^-]*-windows/
     draft: true
     on:
       appveyor_repo_tag: true
