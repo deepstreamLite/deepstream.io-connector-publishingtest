@@ -22,14 +22,15 @@ after_script:
 
 deploy:
   - provider: s3
-    access_key_id: "YOUR AWS ACCESS KEY"
-    secret_access_key: "YOUR AWS SECRET KEY"
-    bucket: "S3 Bucket"
+    access_key_id:
+      secure: LVfD8TNW39MSNVdVrvsq9ZiWKmdiamIFy2n42SwvzDUuC/NvESswZQcg2ObpkSzvkqbS4fqwM7VVf3UmFzGt8Tx/O2BPMUTPE+tffohHZXy1z8SNPtxc7BC/tChmQQvyvvCZGjnOJcss9yYGZrzGRCEhzM/XXLiafm59ZUvXRo4dSy10E0pAzil6fUEZ9gGFGnKrRMVi2pE9En/qlZ9Lnfd35QfEQZQiW1w6oJXTiNjXRI/4p+BfkR+dkNJvWdaKtZw8jQRblQ6ZP6sXdrbEfXXwj0PD5Wg7h68/vkDzXJ8MeKLgWUeLxWQx8OkMvJGPBHsOsBZLcSYGLZNwPcw2VAjIkH5+1o3CLFE0UxmBLQ1IZKVRa9WxI6oCXGr0UJ/02XCjbC4fbDoSOY6N157K7VhANfvoUHnNkDmfom4vNtWdr67kR+cwZvqNn2ZLEAuAq9IYLIMW5q61VP+zgp9IrldHh+vamjBaxzMjufo/H77jAp7vUurB/jcmUWQVx0VSNOBrGIeY1RjfhPpjZ6c0LQ+uw59fM5Iekrlrm01R83OapJf4MqsrwpiFzx8XpqWHSnDh3CBlvTDTbOMSU6BuQoAoTTFMndQEtaRMSnXE2FhjpgId1hWAphY0NxDxs8qcr7tDrmcHpLPtS1t5WcJ1Q+9BhyD0yHxHxwn7FHs8dfQ=
+    secret_access_key:
+      secure: ssoGoQW2gOQPvse/ttqAA+BeGk1ZnUe9aro9Nch57TPIEY8b7vJEFm60JnUtPJx0FvL5CinuaJB4+eUABsw9Qiyi1Ve5v4T8zIUtNbrokHgsaK2uidGQCvwwRbA/wU6agr2JTXtczcemw99Xk2JvSLJ+PtGwL7YKAbE0WW+jMwiXxnsbbDYCMX7HHSGIa3qJmzdnxlDYah1vK2cahFwhSnGulqTc1O61CMS27KvjyJ5T/jDmoWfyfJohZOMSlFoCnVOJh8VwX/0+7nJKcyl+IUz7SC/8SXL/hWJ8RbbUHknOtkECNzGeEBDLB8360ZwlzzirjU6xhWajkXfzS6NXsm+LILu1NGPZNlyltkYe4OwyWsXBpZ3QDg5QZfSLfEepEIEppfLijgmccb9jOylmr1dta0tr36p5pm4R6fiWPb3zUJthn6WvrwdHz7pxKUo9us1GHnT5CSY0KoppjBcf5FwaNNLFE/lFgyQEtLOqCmFHvZriKjqHt/YmxJxgTwlDoX5hW6fO3fzIr/335QQQ1oLjQMH6SESZ2IijaKwnFDcRpBJSg82XVJyrLTMv5uBs+ZTMZVBYKLsI7CZCV3HJCJBznQcLAixKqM6b6N9pFYKIxH8hSYtdenNeL7Egm62C/F+c++3Ll32AwES/SPGwsBAiIOm5f4dcTu3mxS9TZlU=
+    bucket: ds-server-artifacts
     skip_cleanup: true
     acl: public_read
     local_dir: build
     upload-dir: $TRAVIS_REPO_SLUG
-
   - provider: releases
     api_key:
       secure: Nza9Tduc8r2OUTXf/DVX78mL1OejgpBaOo/nZ1zJxco6v/fXtoHYjfplkqUW/bloZkeS2w88dG5fLreuQkwSQ/Zod6S0An7qTHaJ/sLN1ivVPzGoW+lwI/xvF+w11INpmQzkCQmGmsnnUzDCSyNYGluW+hZdCshpQ6ZWd3hbNKU=
@@ -37,6 +38,7 @@ deploy:
     on:
       tags: true
 
+plugins:
   apt:
     sources:
     - ubuntu-toolchain-r-test
