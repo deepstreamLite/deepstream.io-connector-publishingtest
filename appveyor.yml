@@ -14,12 +14,15 @@ test_script:
   - npm test
   - scripts\package.bat
 
+after_build:
+  - mv build\* .
+
 # Environment variable needs to change
 environment:
   MEMCACHED_URL: 54.93.77.53:11211
 
 artifacts:
-  - path: build\*\*.zip
+  - path: /*\*.zip/
 
 deploy:
 
