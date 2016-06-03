@@ -1,6 +1,6 @@
 {
   "name": "deepstream.io-cache-memcached",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "A deepstream.io cache connector for memcached",
   "main": "src/connector.js",
   "scripts": {
