@@ -24,8 +24,7 @@ after_script:
 deploy:
   - provider: s3
     access_key_id: "AKIAIC5J3AF5E2HIQ3LA"
-    secret_access_key:
-      secure: "M7d7cMOd6h88VnYJxFh9zVtBKexqIP2vCWxydvSLUa5ctQlhYbsc7F+qBciH3uU8un+Ghn47CaWLhS7rCuQl5Y6KApbK97cA27JFTjCfCbjjZOh/pJEKuYP6FQJBUm62ARfsTZtblB+XWf7rZCzimyZNbSWZguOWeaMG2SMg1erFkSz5XXx03QXhvElK5ug96HVPkFV0v3yuAXEcE8gB/ulaDg9DD3HL1u8fjGAhMiHhCl6495biloBaKqcgFDSVUIDpkfttc8/C+m0hWD9XDoPAGa/N/4vuvAY0kRynE0quutZHhDVY9LxL1tc7CddWBNWCr+2QFHlzsDBzPjDGtNY/9KFSD+02HmCbpsUP9dRzDlp7mdItSqYcWgZRuiHt/Z66UYeAChvGbG1RYUDV9O/v1Y6s7fWGGcUzVFuMfJvq0FXmt5ZAEV+E5JB73h66BOl97Lzszt4anQfjLBLUdZlLFGYwfH/aFRIbkVHfBb2WjhNfVqLnUOJnoyaSdq3ikb1erNs1BoVP+I1xo9zJXLbU3lvVld3Ot7z4Jj1Ps/nx+LSjQsyZB1kimZG36278WvZVoVBxqtqt91jvygFyh8gYXuBCCw4ZFhmzn6z/R79rd1IHs+UY3tF7Cv7mQS4qCanhhZLWG3GANZgxfTicIh19GEpOHzFuO6vUnNYcXjs="
+    secret_access_key: "a1jTmMu20LZM61OTivzoytE/iYuAd7msRgZQJLG6"
     bucket: ds-server-artifacts
     skip_cleanup: true
     acl: public_read
