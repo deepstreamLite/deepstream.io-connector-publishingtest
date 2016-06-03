@@ -28,7 +28,7 @@ if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 	exit
 fi
 
-FILE_NAME=$PACKAGE_NAME-$PACKAGE_VERSION-$COMMIT-$PLATFORM
+FILE_NAME=$PACKAGE_NAME-$PLATFORM-$PACKAGE_VERSION-$COMMIT
 
 # Do a git archive and a production install
 # to have cleanest output
