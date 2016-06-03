@@ -39,7 +39,7 @@ deploy:
     description: 'Release description'
     auth_token:
       secure: tZHuiZVCwkXRYMihVyoNrmDxAm6xPbXyop7Plg5uUWIIqA1EoUCrTYd/V+0D1I+Y
-    artifact: '**\*-windows.zip'
+    artifact: 'build\*.zip'
     draft: true
     on:
       appveyor_repo_tag: true
