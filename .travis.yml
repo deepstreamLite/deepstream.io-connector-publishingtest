@@ -21,20 +21,21 @@ after_script:
   - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 
 deploy:
-  provider: releases
-  api_key:
-    secure: Nza9Tduc8r2OUTXf/DVX78mL1OejgpBaOo/nZ1zJxco6v/fXtoHYjfplkqUW/bloZkeS2w88dG5fLreuQkwSQ/Zod6S0An7qTHaJ/sLN1ivVPzGoW+lwI/xvF+w11INpmQzkCQmGmsnnUzDCSyNYGluW+hZdCshpQ6ZWd3hbNKU=
-  file: "$( ls build/*/* | grep '/deepstream.io-[^-]*-'[^-]*-[mac:linux] )"
-  on:
-    tags: true
+  - provider: s3
+    access_key_id: "YOUR AWS ACCESS KEY"
+    secret_access_key: "YOUR AWS SECRET KEY"
+    bucket: "S3 Bucket"
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    upload-dir: $TRAVIS_REPO_SLUG
 
-addons:
-  artifacts:
-    paths:
-    - $( ls build/*/*.tar.gz )
-    - $( ls build/*/*.zip )
-    target_paths:
-    - $TRAVIS_REPO_SLUG
+  - provider: releases
+    api_key:
+      secure: Nza9Tduc8r2OUTXf/DVX78mL1OejgpBaOo/nZ1zJxco6v/fXtoHYjfplkqUW/bloZkeS2w88dG5fLreuQkwSQ/Zod6S0An7qTHaJ/sLN1ivVPzGoW+lwI/xvF+w11INpmQzkCQmGmsnnUzDCSyNYGluW+hZdCshpQ6ZWd3hbNKU=
+    file: "$( ls build/*/* | grep '/deepstream.io-[^-]*-'[^-]*-[mac:linux] )"
+    on:
+      tags: true
 
   apt:
     sources:
