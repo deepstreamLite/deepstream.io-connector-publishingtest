@@ -19,7 +19,10 @@ environment:
   MEMCACHED_URL: 54.93.77.53:11211
 
 artifacts:
-  - path: '**\*.zip'
+  - path: **\*.zip
+
+  - path: build\*.zip
+    name: deepstream.io-connector
 
 deploy:
 
@@ -38,6 +41,7 @@ deploy:
     description: 'Release description'
     auth_token:
       secure: tZHuiZVCwkXRYMihVyoNrmDxAm6xPbXyop7Plg5uUWIIqA1EoUCrTYd/V+0D1I+Y
+    artifact: deepstream.io-connector
     draft: true
     on:
       appveyor_repo_tag: true
