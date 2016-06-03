@@ -36,7 +36,7 @@ ECHO 'Creating artificat'
 7z a ..\%FILE_NAME% .
 
 CD ..
-COPY %cd%\%FILE_NAME%\* %CLEAN_FILE_NAME%
+COPY %FILE_NAME% ..\%CLEAN_FILE_NAME%
 
 :: Cleanup
 RMDIR /S /Q %PACKAGE_NAME%
