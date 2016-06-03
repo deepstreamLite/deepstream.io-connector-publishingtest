@@ -38,7 +38,7 @@ deploy:
     release: $(APPVEYOR_REPO_TAG_NAME)
     description: 'Release description'
     auth_token:
-      secure: AzK8Q0I0imLpXdHGjXAehk03uWjh40mG0h2/T2mAxDYrrSmJ2tDFLYogj+yu3VJ3
+      secure: "JVNBKA2Ih39BHg+vfsB8pg+s4KIpFBAO6iqKE7aOhSWIUUziqX4HaAxBM0KaXYAakLMQkV9bURaiNi7jKnxMbXjHUTiUNHPBDu6Q0r6jtJhYMRj4puWzVVjXBsQXcT+ppbNsLI7F6fa1R7MKSQFAHZP2XJDQEsmp936Z5XGAbkvoX+E+aGzoxLiQincRb0DGvJrmJRjzIMz3bmX0vsW1AYDgPefCCwDdIgeDyoba3jBXyQz4LqNL9iHgW4+ewcG7JpG5TntaxZpJTaQdv6Pdewf/phsF9iDROr2UfIW6IA2GlmpK4osjXegRNCw9KcIrbJG/i2Hy4hPGuzfI29UQh+manH/1DYdh3O9GZJPR/23aiXxfOujAlJC10CNLOee3xEA77NTr3LONfkgrrvMNpgHKf9++3YqCCXFCNPdf9wQZGkw9OljuyUS8vv+nLI8JxYyONM3vwsvpwYvv0Er8w4Xr2TCJKTxP9MRYGfrEERsal1BqEU7UG0kzKlUGpPQvPTvMyInEppN8kYAYboKI/f6K2HWw00259sjzPpfTYenvstgEPXF8D+uRmo+FJHYluwU/96G/bg8tFhLB+9PKTl9LSNkAx3jpmu1bgCsE9yq51ZbVYMLBjUedrJZNGIajKvRJ/r/+5wtmPIWrUprZ5N8G0hwAm5qNzMcJyO4Cr+c="
     artifact: /build\/.*\/deepstream.io-[^-]*-'[^-]*-windows/
     draft: true
     on:

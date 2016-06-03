@@ -30,7 +30,6 @@ deploy:
     bucket: ds-server-artifacts
     skip_cleanup: true
     acl: public_read
-    local_dir: build
     upload-dir: $TRAVIS_REPO_SLUG
   - provider: releases
     api_key:
