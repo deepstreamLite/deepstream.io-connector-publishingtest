@@ -16,8 +16,7 @@ if [ $OS == "darwin" ]; then
 elif  [ $OS == "linux" ]; then
 	PLATFORM="linux"
 elif  [ $OS == "win32" ]; then
-	echo "Window packaging should be run via the batch file"
-	exit
+	PLATFORM="windows"
 else
 	echo "Operating system $OS not supported for packaging"
 	exit
@@ -44,6 +43,10 @@ if [ $PLATFORM == 'mac' ]; then
 	FILE_NAME="$FILE_NAME.zip"
 	CLEAN_FILE_NAME="$PACKAGE_NAME-$PLATFORM.zip"
 	zip -r ../$FILE_NAME .
+elif [ $PLATFORM == 'windows' ]; then
+	FILE_NAME="$FILE_NAME.zip"
+	CLEAN_FILE_NAME="$PACKAGE_NAME-$PLATFORM.zip"
+	7z a ..\%FILE_NAME% .
 else
 	FILE_NAME="$FILE_NAME.tar.gz"
 	CLEAN_FILE_NAME="$PACKAGE_NAME-$PLATFORM.tar.gz"
