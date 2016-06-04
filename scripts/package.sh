@@ -46,7 +46,7 @@ if [ $PLATFORM == 'mac' ]; then
 elif [ $PLATFORM == 'windows' ]; then
 	FILE_NAME="$FILE_NAME.zip"
 	CLEAN_FILE_NAME="$PACKAGE_NAME-$PLATFORM.zip"
-	7z a ..\%FILE_NAME% .
+	7z a ../$FILE_NAME .
 else
 	FILE_NAME="$FILE_NAME.tar.gz"
 	CLEAN_FILE_NAME="$PACKAGE_NAME-$PLATFORM.tar.gz"
