@@ -1,10 +1,10 @@
 #!/bin/bash
-PACKAGED_NODE_VERSION="v4.4.4"
+PACKAGED_NODE_VERSION="v4.4.5"
+OS=$( node -e "console.log(require('os').platform())" )
 NODE_VERSION=$( node --version )
-COMMIT=$( node scripts/details.js COMMIT )
-PACKAGE_VERSION=$( node scripts/details.js VERSION )
-PACKAGE_NAME=$( node scripts/details.js NAME )
-OS=$( node scripts/details.js OS )
+COMMIT=$( git log --pretty=format:%h -n 1 )
+PACKAGE_VERSION=$( cat package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
+PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
 
 # Clean the build directory
 rm -rf build

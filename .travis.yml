@@ -16,7 +16,8 @@ matrix:
 
 script:
   - npm run ci
-  - chmod 555 scripts/package.sh && scripts/package.sh
+  - curl -o package.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/package.sh
+  - chmod 555 package.sh && package.sh
 
 after_script:
   - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
@@ -42,6 +43,11 @@ deploy:
       - "build/*.zip"
     on:
       tags: true
+
+after_deploy:
+  - curl -o build/test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
+  - chmod 555 test.sh
+  - test.sh
 
 plugins:
   apt:

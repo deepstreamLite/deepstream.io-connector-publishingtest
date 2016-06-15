@@ -12,7 +12,8 @@ test_script:
   - node --version
   - npm --version
   - npm test
-  - bash scripts\package.sh
+  - curl -o package.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/package.sh
+  - bash package.sh
   - For /d %%d in ( build\** ) do MOVE %%d %cd%
 
 # Environment variable needs to change
@@ -46,5 +47,11 @@ deploy:
     draft: true
     on:
       appveyor_repo_tag: true
+
+after_deploy:
+
+  - curl -o build/test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
+  - chmod 555 test.sh
+  - test.sh connector publishingtest
 
 build: off

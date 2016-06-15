@@ -1,7 +1,7 @@
 {
-  "name": "deepstream.io-cache-publishingtest",
+  "name": "deepstream.io-connector-publishingtest",
   "version": "2.0.0",
-  "description": "A deepstream.io cache connector for memcached",
+  "description": "A deepstream.io test connector",
   "main": "src/connector.js",
   "scripts": {
     "test": "mocha",
@@ -11,25 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/deepstreamIO/deepstream.io-cache-memcached.git"
+    "url": "https://github.com/deepstreamIO/deepstream.io-connector-publishingtest.git"
   },
   "author": "deepstreamHub GmbH",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/deepstreamIO/deepstream.io-cache-memcached/issues"
+    "url": "https://github.com/deepstreamIO/deepstream.io-connector-publishingtest/issues"
   },
   "homepage": "http://deepstream.io",
   "dependencies": {
-    "memcached": "2.2.2"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.9",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^3.1.0",
-    "grunt": "~1.0.1",
-    "grunt-release": "0.13.1",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.5.2"
   }
 }
