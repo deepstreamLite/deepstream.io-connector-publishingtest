@@ -17,7 +17,7 @@ if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 fi
 
 if [ -z $1 ]; then
-	if [[ -z ${TRAVIS_TAG} ]] || [[ -z ${APPVEYOR_REPO_TAG} ]]; then
+	if [[ -z ${TRAVIS_TAG} ]] && [[ -z ${APPVEYOR_REPO_TAG} ]]; then
 		echo "Only runs on tags"
 		exit 0
 	else
