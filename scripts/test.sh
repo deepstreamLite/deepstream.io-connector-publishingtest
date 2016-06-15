@@ -19,10 +19,10 @@ fi
 if [ -z $1 ]; then
 	if [[ -z ${TRAVIS_TAG} ]] && [[ -z ${APPVEYOR_REPO_TAG} ]]; then
 		echo "Only runs on tags"
-		exit 0
-	elif [[ ${APPVEYOR_REPO_TAG} == False ]]; then
+		exit
+	elif [[ ${APPVEYOR_REPO_TAG} = false ]]; then
 		echo "On appveyor, not a tag"
-		exit 0
+		exit
 	else
 		echo "Running on tag ${TRAVIS_TAG} ${APPVEYOR_REPO_TAG}"
 	fi
