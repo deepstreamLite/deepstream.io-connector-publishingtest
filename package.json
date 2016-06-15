@@ -1,6 +1,6 @@
 {
   "name": "deepstream.io-connector-publishingtest",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A deepstream.io test connector",
   "main": "src/connector.js",
   "scripts": {
@@ -16,8 +16,6 @@
     "url": "https://github.com/deepstreamIO/deepstream.io-connector-publishingtest/issues"
   },
   "homepage": "http://deepstream.io",
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
