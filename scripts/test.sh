@@ -22,6 +22,7 @@ if [ -z $1 ]; then
 		exit 0
 	elif [[ ${APPVEYOR_REPO_TAG} == False ]]; then
 		echo "On appveyor, not a tag"
+		exit 0
 	else
 		echo "Running on tag ${TRAVIS_TAG} ${APPVEYOR_REPO_TAG}"
 	fi
