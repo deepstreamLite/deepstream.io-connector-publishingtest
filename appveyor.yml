@@ -46,6 +46,6 @@ deploy:
 after_deploy:
   - curl -o test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
   - chmod 555 test.sh
-  - ./test.sh
+  - bash test.sh
 
 build: off
