@@ -23,7 +23,7 @@ if [ -z $1 ]; then
 	elif [[ ${APPVEYOR_REPO_TAG} == False ]]; then
 		echo "On appveyor, not a tag"
 	else
-		echo "Running on tag ${TRAVIS_TAG $APPVEYOR_REPO_TAG}"
+		echo "Running on tag ${TRAVIS_TAG} ${APPVEYOR_REPO_TAG}"
 	fi
 else
 	echo "Build forced although not tag"
