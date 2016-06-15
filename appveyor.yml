@@ -5,7 +5,7 @@ platform:
   - x64
 
 install:
-  - ps: Install-Product node 4.4.4
+  - ps: Install-Product node 4.4.5
   - npm install
 
 test_script:
@@ -15,10 +15,6 @@ test_script:
   - curl -o package.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/package.sh
   - bash package.sh
   - For /d %%d in ( build\** ) do MOVE %%d %cd%
-
-# Environment variable needs to change
-environment:
-  MEMCACHED_URL: 54.93.77.53:11211
 
 artifacts:
   - path: 'build\*.zip'
@@ -50,8 +46,8 @@ deploy:
 
 after_deploy:
 
-  - curl -o build/test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
+  - curl -o test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
   - chmod 555 test.sh
-  - test.sh connector publishingtest
+  - ./test.sh
 
 build: off
