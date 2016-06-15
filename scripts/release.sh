@@ -11,7 +11,7 @@ fi
 echo 'Starting release'
 
 npm version $1
-echo "Version now: $( node scripts/details.js VERSION )"
+echo "Version now: $( cat package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )"
 
 echo 'Pushing to github'
 git push --follow-tags
