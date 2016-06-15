@@ -8,6 +8,11 @@ PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g 
 TYPE=$( echo $PACKAGE_NAME | sed s/deepstream.io-//g | sed s/-.*//g )
 CONNECTOR=$( echo $PACKAGE_NAME | sed s/deepstream.io-[^-]*-//g )
 
+if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
+	echo "Packaging only done on $PACKAGED_NODE_VERSION"
+	exit
+fi
+
 if [ -z $1 ]; then
 	if [ -z $TRAVIS_TAG ] && [ -z $APPVEYOR_REPO_TAG ]; then
 		echo "Only runs on tags"

@@ -23,7 +23,7 @@ else
 fi
 
 if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
-	echo Packaging only done on $PACKAGED_NODE_VERSION
+	echo "Packaging only done on $PACKAGED_NODE_VERSION"
 	exit
 fi
 
