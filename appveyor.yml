@@ -14,7 +14,6 @@ test_script:
   - npm test
   - bash scripts\package.sh
   - For /d %%d in ( build\** ) do MOVE %%d %cd%
-  - For %%d in ( build\** ) do MOVE %%d %cd%
 
 # Environment variable needs to change
 environment:
@@ -25,7 +24,6 @@ artifacts:
     name: 'deepstream.io-connector'
 
   - path: '**\*.zip'
-  - path: '*.zip'
 
 deploy:
 
