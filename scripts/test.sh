@@ -2,6 +2,9 @@
 set -e
 
 DEEPSTREAM_VERSION=1.0.0-beta.4
+PACKAGED_NODE_VERSION=v4.4.5
+
+NODE_VERSION=$( node --version )
 OS=$( node -e "console.log(require('os').platform())" )
 PACKAGE_VERSION=$( cat package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
 PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
