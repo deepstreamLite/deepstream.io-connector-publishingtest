@@ -1,6 +1,6 @@
 {
   "name": "deepstream.io-connector-publishingtest",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A deepstream.io test connector",
   "main": "src/connector.js",
   "scripts": {
