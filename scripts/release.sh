@@ -9,9 +9,7 @@ if [ $( npm whoami ) != "deepstreamio" ]; then
 fi
 
 echo 'Starting release'
-
 npm version $1
-echo "Version now: $( cat package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )"
 
 echo 'Pushing to github'
 git push --follow-tags

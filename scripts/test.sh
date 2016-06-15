@@ -49,7 +49,7 @@ cd ${DEEPSTREAM}
 echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
 chmod 555 deepstream
 ./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION
-deepstream start -c ../../example-config.yml &
+./deepstream start -c ../../example-config.yml &
 
 PROC_ID=$!
 
