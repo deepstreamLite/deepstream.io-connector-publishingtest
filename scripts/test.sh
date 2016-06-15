@@ -34,19 +34,20 @@ if [ $OS = "win32" ]; then
 	DEEPSTREAM=deepstream.io-windows-${DEEPSTREAM_VERSION}
 	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.zip
 	unzip ${DEEPSTREAM} -d ${DEEPSTREAM}
-elif [ $PLATFORM == 'mac' ]; then
+elif [ $OS == 'mac' ]; then
 	DEEPSTREAM=deepstream.io-mac-${DEEPSTREAM_VERSION}
 	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.zip
 	unzip ${DEEPSTREAM} -d ${DEEPSTREAM}
 else
 	DEEPSTREAM=deepstream.io-linux-${DEEPSTREAM_VERSION}
-	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.tar.gz
-	tar czf $FILE_NAME .
+	mkdir -p ${DEEPSTREAM}
+	curl -o ${DEEPSTREAM}.tar.gz -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.tar.gz
+	tar -xzf ${DEEPSTREAM}.tar.gz -C ${DEEPSTREAM}
 fi
-
 
 cd ${DEEPSTREAM}
 echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
+chmod 555 deepstream
 ./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION
 deepstream start -c ../../example-config.yml &
 
