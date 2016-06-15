@@ -23,7 +23,6 @@ artifacts:
   - path: '**\*.zip'
 
 deploy:
-
   - provider: S3
     access_key_id:
       secure: cq7lgQP04314hwXwM2l0yiUKRcOkwHeKkDHFULrThxE=
@@ -45,7 +44,6 @@ deploy:
       appveyor_repo_tag: true
 
 after_deploy:
-
   - curl -o test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
   - chmod 555 test.sh
   - ./test.sh
