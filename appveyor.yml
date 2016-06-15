@@ -39,7 +39,7 @@ deploy:
     auth_token:
       secure: tZHuiZVCwkXRYMihVyoNrmDxAm6xPbXyop7Plg5uUWIIqA1EoUCrTYd/V+0D1I+Y
     artifact: 'deepstream.io-connector'
-    draft: true
+    draft: false
     on:
       appveyor_repo_tag: true
 

@@ -17,10 +17,14 @@ if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 fi
 
 if [ -z $1 ]; then
-	if [ -z $TRAVIS_TAG ] && [ -z $APPVEYOR_REPO_TAG ]; then
+	if [[ -z ${TRAVIS_TAG} ]] || [[ -z ${APPVEYOR_REPO_TAG} ]]; then
 		echo "Only runs on tags"
 		exit 0
+	else
+		echo "Running on tag"
 	fi
+else
+	echo "Build forced although not tag"
 fi
 
 echo "Starting deepstream.io $TYPE $CONNECTOR $PACKAGE_VERSION test for $DEEPSTREAM_VERSION on $OS"
@@ -33,7 +37,7 @@ echo "Downloading deepstream $DEEPSTREAM_VERSION"
 if [ $OS = "win32" ]; then
 	DEEPSTREAM=deepstream.io-windows-${DEEPSTREAM_VERSION}
 	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.zip
-	unzip ${DEEPSTREAM} -d ${DEEPSTREAM}
+	7z x ${DEEPSTREAM}.zip -o${DEEPSTREAM}
 elif [ $OS == 'mac' ]; then
 	DEEPSTREAM=deepstream.io-mac-${DEEPSTREAM_VERSION}
 	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.zip
