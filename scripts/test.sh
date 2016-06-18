@@ -13,6 +13,11 @@ PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g 
 TYPE=$( echo $PACKAGE_NAME | sed s/deepstream.io-//g | sed s/-.*//g )
 CONNECTOR=$( echo $PACKAGE_NAME | sed s/deepstream.io-[^-]*-//g )
 
+# These must happen before any exits otherwise deployment would fail
+rm -rf build
+mkdir build
+cd build
+
 if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 	echo "Packaging only done on $PACKAGED_NODE_VERSION"
 	exit
@@ -33,10 +38,6 @@ else
 fi
 
 echo "Starting deepstream.io $TYPE $CONNECTOR $PACKAGE_VERSION test for $DEEPSTREAM_VERSION on $OS"
-
-rm -rf build
-mkdir build
-cd build
 
 echo "Downloading deepstream $DEEPSTREAM_VERSION"
 if [ $OS = "win32" ]; then

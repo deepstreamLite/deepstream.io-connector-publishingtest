@@ -6,6 +6,12 @@ COMMIT=$( git log --pretty=format:%h -n 1 )
 PACKAGE_VERSION=$( cat package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
 PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
 
+# These must happen before any exits otherwise deployment would fail
+# Clean the build directory
+rm -rf build
+mkdir build
+cd build
+
 if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 	echo "Packaging only done on $PACKAGED_NODE_VERSION"
 	exit
@@ -35,11 +41,6 @@ else
 	echo "Operating system $OS not supported for packaging"
 	exit
 fi
-
-# Clean the build directory
-rm -rf build
-mkdir build
-mkdir build/$PACKAGE_VERSION
 
 FILE_NAME=$PACKAGE_NAME-$PLATFORM-$PACKAGE_VERSION-$COMMIT
 
