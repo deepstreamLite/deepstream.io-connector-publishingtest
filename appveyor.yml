@@ -32,3 +32,5 @@ test_script:
   - curl -o package.json -L https://raw.githubusercontent.com/deepstreamIO/$(CONNECTOR)/master/package.json
   - curl -o test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
   - bash ./test.sh true
+
+build: off
