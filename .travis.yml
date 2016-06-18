@@ -18,6 +18,8 @@ env:
     - linux
 
   matrix:
+    - CONNECTOR=deepstream.io-connector-publishingtest
+
     - CONNECTOR=deepstream.io-cache-hazelcast
     - CONNECTOR=deepstream.io-cache-memcached
     - CONNECTOR=deepstream.io-cache-redis
