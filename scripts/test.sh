@@ -52,6 +52,7 @@ fi
 cd ${DEEPSTREAM}
 echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
 chmod 555 deepstream
+./deepstream --version
 ./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION
 ./deepstream start -c ../../example-config.yml &
 
