@@ -50,9 +50,10 @@ else
 fi
 
 cd ${DEEPSTREAM}
-echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
 chmod 555 deepstream
+echo "./deepstream --version
 ./deepstream --version
+echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
 ./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION
 ./deepstream start -c ../../example-config.yml &
 
