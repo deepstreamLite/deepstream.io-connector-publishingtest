@@ -1,5 +1,8 @@
 dist: trusty
-sudo: required
+
+os:
+  - osx
+  - linux
 
 env:
   global:
@@ -12,10 +15,6 @@ env:
     - KAFKA_HOST=54.93.77.53
     - MONGODB_CONNECTION_STRING=mongodb://52.59.253.77
     - RETHINKDB_HOST=54.93.77.53
-
-  os:
-    - osx
-    - linux
 
   matrix:
     - CONNECTOR=deepstream.io-connector-publishingtest
