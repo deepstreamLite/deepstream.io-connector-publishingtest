@@ -1,0 +1,34 @@
+platform:
+  - x64
+
+environment:
+  ELASTICSEARCH_HOST: search-test-yeplhfhxvim2hg47siucsdj3gm.eu-central-1.es.amazonaws.com
+  REDIS_HOST: 54.93.183.16
+  REDIS_PORT: 6379
+  HAZELCAST_PORT: 5701
+  HAZELCAST_HOST: 54.93.183.16
+  MEMCACHED_URL: 54.93.77.53:11211
+  KAFKA_HOST: 54.93.77.53
+  MONGODB_CONNECTION_STRING: mongodb://52.59.253.77
+  RETHINKDB_HOST: 54.93.77.53
+
+  matrix:
+    - CONNECTOR=deepstream.io-connector-publishingtest
+
+    - CONNECTOR=deepstream.io-cache-hazelcast
+    - CONNECTOR=deepstream.io-cache-memcached
+    - CONNECTOR=deepstream.io-cache-redis
+
+    - CONNECTOR=deepstream.io-msg-redis
+    - CONNECTOR=deepstream.io-msg-direct
+    - CONNECTOR=deepstream.io-msg-kafka
+    - CONNECTOR=deepstream.io-msg-redis
+
+    - CONNECTOR=deepstream.io-storage-elasticsearch
+    - CONNECTOR=deepstream.io-storage-mongodb
+    - CONNECTOR=deepstream.io-storage-rethinkdb
+
+test_script:
+  - curl -o package.json -L https://raw.githubusercontent.com/deepstreamIO/$(CONNECTOR)/master/package.json
+  - curl -o test.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/test.sh
+  - bash ./test.sh true
