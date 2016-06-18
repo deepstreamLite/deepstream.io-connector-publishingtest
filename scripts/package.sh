@@ -6,10 +6,24 @@ COMMIT=$( git log --pretty=format:%h -n 1 )
 PACKAGE_VERSION=$( cat package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
 PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )
 
-# Clean the build directory
-rm -rf build
-mkdir build
-mkdir build/$PACKAGE_VERSION
+if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
+	echo "Packaging only done on $PACKAGED_NODE_VERSION"
+	exit
+fi
+
+if [ -z $1 ]; then
+	if [[ -z ${TRAVIS_TAG} ]] && [[ -z ${APPVEYOR_REPO_TAG} ]]; then
+		echo "Only runs on tags"
+		exit
+	elif [[ ${APPVEYOR_REPO_TAG} = false ]]; then
+		echo "On appveyor, not a tag"
+		exit
+	else
+		echo "Running on tag ${TRAVIS_TAG} ${APPVEYOR_REPO_TAG}"
+	fi
+else
+	echo "Build forced although not tag"
+fi
 
 if [ $OS == "darwin" ]; then
 	PLATFORM="mac"
@@ -22,10 +36,10 @@ else
 	exit
 fi
 
-if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
-	echo "Packaging only done on $PACKAGED_NODE_VERSION"
-	exit
-fi
+# Clean the build directory
+rm -rf build
+mkdir build
+mkdir build/$PACKAGE_VERSION
 
 FILE_NAME=$PACKAGE_NAME-$PLATFORM-$PACKAGE_VERSION-$COMMIT
 

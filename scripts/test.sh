@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
 
-DEEPSTREAM_VERSION=1.0.0-beta.4
 PACKAGED_NODE_VERSION=v4.4.5
+
+curl -o deepstream_package.json https://raw.githubusercontent.com/deepstreamIO/deepstream.io/master/package.json
+DEEPSTREAM_VERSION="$( cat deepstream_package.json | grep version | awk '{ print $2 }' | sed s/\"//g | sed s/,//g )"
 
 NODE_VERSION=$( node --version )
 OS=$( node -e "console.log(require('os').platform())" )
