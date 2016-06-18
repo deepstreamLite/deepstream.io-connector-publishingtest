@@ -51,7 +51,7 @@ fi
 
 cd ${DEEPSTREAM}
 chmod 555 deepstream
-echo "./deepstream --version
+echo "./deepstream --version"
 ./deepstream --version
 echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
 ./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION
