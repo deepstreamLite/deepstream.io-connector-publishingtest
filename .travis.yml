@@ -14,7 +14,7 @@ env:
     - RETHINKDB_HOST=54.93.77.53
 
   os:
-    - mac
+    - osx
     - linux
 
   matrix:
