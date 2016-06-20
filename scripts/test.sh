@@ -38,7 +38,7 @@ if [ $OS = "win32" ]; then
 	DEEPSTREAM=deepstream.io-windows-${DEEPSTREAM_VERSION}
 	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.zip
 	7z x ${DEEPSTREAM}.zip -o${DEEPSTREAM}
-elif [ $OS == 'mac' ]; then
+elif [ $OS == 'darwin' ]; then
 	DEEPSTREAM=deepstream.io-mac-${DEEPSTREAM_VERSION}
 	curl -o ${DEEPSTREAM}.zip -L https://github.com/deepstreamIO/deepstream.io/releases/download/v${DEEPSTREAM_VERSION}/${DEEPSTREAM}.zip
 	unzip ${DEEPSTREAM} -d ${DEEPSTREAM}
