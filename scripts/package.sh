@@ -9,26 +9,11 @@ PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g 
 # These must happen before any exits otherwise deployment would fail
 # Clean the build directory
 rm -rf build
-mkdir build
-cd build
+mkdir -p build/$PACKAGE_VERSION
 
 if [ $NODE_VERSION != $PACKAGED_NODE_VERSION ]; then
 	echo "Packaging only done on $PACKAGED_NODE_VERSION"
 	exit
-fi
-
-if [ -z $1 ]; then
-	if [[ -z ${TRAVIS_TAG} ]] && [[ -z ${APPVEYOR_REPO_TAG} ]]; then
-		echo "Only runs on tags"
-		exit
-	elif [[ ${APPVEYOR_REPO_TAG} = false ]]; then
-		echo "On appveyor, not a tag"
-		exit
-	else
-		echo "Running on tag ${TRAVIS_TAG} ${APPVEYOR_REPO_TAG}"
-	fi
-else
-	echo "Build forced although not tag"
 fi
 
 if [ $OS == "darwin" ]; then
@@ -47,7 +32,7 @@ FILE_NAME=$PACKAGE_NAME-$PLATFORM-$PACKAGE_VERSION-$COMMIT
 # Do a git archive and a production install
 # to have cleanest output
 git archive --format=zip $COMMIT -o ./build/$PACKAGE_VERSION/temp.zip
-cd build/$PACKAGE_VERSION
+cd ./build/$PACKAGE_VERSION
 unzip temp.zip -d $PACKAGE_NAME
 
 cd $PACKAGE_NAME
