@@ -54,7 +54,7 @@ chmod 555 deepstream
 echo "./deepstream --version"
 ./deepstream --version
 echo "./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION"
-./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION
+./deepstream install $TYPE $CONNECTOR:$PACKAGE_VERSION --verbose
 ./deepstream start -c ../../example-config.yml &
 
 PROC_ID=$!
