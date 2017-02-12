@@ -1,5 +1,5 @@
 #!/bin/bash
-PACKAGED_NODE_VERSION="v6.9.1"
+PACKAGED_NODE_VERSION="v6.9.5"
 OS=$( node -e "console.log(require('os').platform())" )
 NODE_VERSION=$( node --version )
 COMMIT=$( git log --pretty=format:%h -n 1 )
