@@ -1,5 +1,7 @@
 # deepstream.io-connector-publishingtest
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/deepstreamIO/deepstream.io-connector-publishingtest.svg)](https://greenkeeper.io/)
+
 This repo is used by all other connectors for the following:
 
 ## Packaging
