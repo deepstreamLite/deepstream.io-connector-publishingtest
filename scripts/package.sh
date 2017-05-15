@@ -11,8 +11,8 @@ PACKAGE_NAME=$( cat package.json | grep name | awk '{ print $2 }' | sed s/\"//g 
 rm -rf build
 mkdir -p build/$PACKAGE_VERSION
 
-if [[ $NODE_VERSION ~= $PACKAGED_NODE_VERSION ]]; then
-	echo "Packaging only done on $PACKAGED_NODE_VERSION"
+if ! [[ $NODE_VERSION == $PACKAGED_NODE_VERSION* ]]; then
+	echo "Packaging only done on $PACKAGED_NODE_VERSION.x"
 	exit
 fi
 
